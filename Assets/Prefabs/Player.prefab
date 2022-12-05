@@ -216,8 +216,8 @@ MonoBehaviour:
   animator: {fileID: 6935406188097510015}
   keyMap: {fileID: 11400000, guid: eb5a0f427bd6269429ea4cc14f985873, type: 2}
   rigidbody: {fileID: 6935406188097509988}
-  speed: 5
-  jumpForce: 10
+  speed: 3
+  jumpForce: 6
   gravity: 9.81
   surfaceDrag: 5
   doubleFallGravity: 1

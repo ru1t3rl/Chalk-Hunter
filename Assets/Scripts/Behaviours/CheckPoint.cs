@@ -18,6 +18,8 @@ namespace Ru1t3rl.ChalkHunter.Behaviours
             {
                 MessageUI.Instance.ShowMessage(message);
             }
+
+            gameObject.SetActive(false);
         }
     }
 }

@@ -32,6 +32,11 @@ namespace Ru1t3rl.ChalkHunter.Behaviours
         private void Start()
         {
             EventManager.Instance.Invoke("SwitchView", new ViewArguments(isPerspective: !camera.orthographic));
+
+            if (!camera.orthographic)
+            {
+                OnToggleView();
+            }
         }
 
         private void Update()
