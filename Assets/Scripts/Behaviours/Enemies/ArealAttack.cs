@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using Ru1t3rl.ChalkHunter.Extensions;
 
 namespace Ru1t3rl.ChalkHunter.Behaviours.Enemies
 {
@@ -14,7 +14,7 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Enemies
         private Coroutine attackRoutine;
 
         [Header("General")]
-        [SerializeField] private string playerTag;
+        [SerializeField] private string[] colliderTags;
         [SerializeField] private float maxDamage = 20f;
         [SerializeField] private float minDamage = 10f;
         [Tooltip("When disabled, the attack will use max damage!")]
@@ -77,7 +77,7 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Enemies
 
             if (!inAttack)
             {
-                if (other.CompareTag(playerTag) && attackRoutine is null)
+                if (other.CompareTag(colliderTags) && attackRoutine is null)
                 {
                     attackRoutine = StartCoroutine(Attack());
                     onAttack?.Invoke();
@@ -85,7 +85,7 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Enemies
                 return;
             }
 
-            if (other.CompareTag(playerTag))
+            if (other.CompareTag(colliderTags))
             {
                 OnHitPlayer(other);
             }
@@ -116,9 +116,9 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Enemies
 
         public void OnTriggerStay(Collider other)
         {
-            if(!inAttack)
+            if (!inAttack)
             {
-                if (other.CompareTag(playerTag) && attackRoutine is null)
+                if (other.CompareTag(colliderTags) && attackRoutine is null)
                 {
                     attackRoutine = StartCoroutine(Attack());
                     onAttack?.Invoke();

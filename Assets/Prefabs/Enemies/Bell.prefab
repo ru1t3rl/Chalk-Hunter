@@ -470,7 +470,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  playerTag: Player
+  colliderTags:
+  - Player
   maxDamage: 20
   minDamage: 10
   useRangedDamage: 1
@@ -478,5 +479,5 @@ MonoBehaviour:
   instant: 0
   minRadius: 1
   maxRadius: 4
-  radiusTransitionDuration: 1
+  radiusTransitionDuration: 2
   sphereCollider: {fileID: 5499758408671669195}
