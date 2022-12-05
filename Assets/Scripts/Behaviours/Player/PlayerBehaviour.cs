@@ -107,9 +107,9 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Player
         private void SetVisualDirection()
         {
             if (velocity.x > 0)
-                transform.localScale = Vector3.one;
-            else if (velocity.x < 0)
                 transform.localScale = new Vector3(-1, 1, 1);
+            else if (velocity.x < 0)
+                transform.localScale = Vector3.one;
         }
 
         private void TruncateRigidbodyVelocity()
@@ -122,5 +122,6 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Player
         }
 
         private bool IsOnGround => Physics.Raycast(transform.position, Vector3.down, 1f);
+        public float Direction => transform.localScale.x;
     }
 }

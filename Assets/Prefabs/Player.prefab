@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 6935406188097509987}
   - component: {fileID: 6935406188097509990}
   - component: {fileID: 6935406188097509989}
+  - component: {fileID: 5043192930021482301}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -299,6 +300,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 6935406188097509990}
   healthBarForeground: {fileID: 4469367168923326853}
+--- !u!114 &5043192930021482301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935406188097510014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ce1aee9fb9f5b469decf241bdc6349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyMap: {fileID: 11400000, guid: eb5a0f427bd6269429ea4cc14f985873, type: 2}
+  throwables:
+  - {fileID: 4030195999108264160, guid: e68c5654ba989474a8ac403e545e72ad, type: 3}
+  - {fileID: 4030195999108264160, guid: e68c5654ba989474a8ac403e545e72ad, type: 3}
+  - {fileID: 4030195999108264160, guid: e68c5654ba989474a8ac403e545e72ad, type: 3}
+  - {fileID: 4030195999108264160, guid: e68c5654ba989474a8ac403e545e72ad, type: 3}
+  playerBehaviour: {fileID: 6935406188097509985}
 --- !u!1 &6935406188201848120
 GameObject:
   m_ObjectHideFlags: 0

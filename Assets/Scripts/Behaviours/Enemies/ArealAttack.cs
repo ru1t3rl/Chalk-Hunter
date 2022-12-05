@@ -42,7 +42,7 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Enemies
             sphereCollider ??= GetComponent<SphereCollider>() ?? gameObject.AddComponent<SphereCollider>();
         }
 
-        private IEnumerator Attack()
+        public IEnumerator Attack()
         {
             inAttack = true;
 
