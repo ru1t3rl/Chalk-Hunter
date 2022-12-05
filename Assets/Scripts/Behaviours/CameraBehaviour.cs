@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using Ru1t3rl.Events;
+using Ru1t3rl.Events.Args;
 using DG.Tweening;
 
 public class CameraBehaviour : MonoBehaviour
 {
     [SerializeField] private new Camera camera;
     [SerializeField] private float animationDuration = 1.5f;
+    public UnityEvent<System.EventArgs> onSwitch = new UnityEvent<System.EventArgs>();
 
     [Header("Ortographic")]
     [SerializeField] private Vector3 ortographicPosition = new Vector3(0, 0, -10);
@@ -20,6 +22,12 @@ public class CameraBehaviour : MonoBehaviour
     private void Awake()
     {
         camera ??= GetComponent<Camera>() ?? Camera.main;
+        EventManager.Instance.AddEvent("SwitchView", onSwitch);
+    }
+
+    private void Start()
+    {
+        EventManager.Instance.Invoke("SwitchView", new ViewArguments(isPerspective: !camera.orthographic));
     }
 
     private void Update()
@@ -37,11 +45,17 @@ public class CameraBehaviour : MonoBehaviour
             camera.orthographic = false;
             transform.DOLocalMove(perspectivePosition, animationDuration);
             transform.DORotateQuaternion(perspectiveRotation, animationDuration);
+
+            EventManager.Instance.Invoke("SwitchView", new ViewArguments(isPerspective: !camera.orthographic));
         }
         else
         {
             transform.DOLocalMove(ortographicPosition, animationDuration);
-            transform.DORotateQuaternion(ortographicRotation, animationDuration).onComplete += () => camera.orthographic = true;
+            transform.DORotateQuaternion(ortographicRotation, animationDuration).onComplete += () =>
+            {
+                camera.orthographic = true;
+                EventManager.Instance.Invoke("SwitchView", new ViewArguments(isPerspective: !camera.orthographic));
+            };
         }
     }
 }

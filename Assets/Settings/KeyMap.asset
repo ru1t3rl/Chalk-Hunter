@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b9872df53ff504d86853b684b1adbe, type: 3}
+  m_Name: KeyMap
+  m_EditorClassIdentifier: 
+  keyBindings:
+  - action: 0
+    key: 7700000011010000
+  - action: 1
+    key: 7300000012010000
+  - action: 2
+    key: 6100000014010000
+  - action: 3
+    key: 6400000013010000
+  - action: 4
+    key: 20000000
+  - action: 5
+    key: 65000000
+  - action: 6
+    key: 300100002f010000
