@@ -113,5 +113,18 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Enemies
                 }
             }
         }
+
+        public void OnTriggerStay(Collider other)
+        {
+            if(!inAttack)
+            {
+                if (other.CompareTag(playerTag) && attackRoutine is null)
+                {
+                    attackRoutine = StartCoroutine(Attack());
+                    onAttack?.Invoke();
+                }
+                return;
+            }
+        }
     }
 }

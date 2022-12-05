@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7185e0020601e7429a6553be17ff77c, type: 3}
+  m_Name: BellAttack
+  m_EditorClassIdentifier: 
+  sequence:
+  - {fileID: 8300000, guid: 2ed20b9680806014e926326a04900eab, type: 3}
+  - {fileID: 8300000, guid: c93532025b890874a80060c3b3f42dde, type: 3}
+  - {fileID: 8300000, guid: 41ac516f4e9cfdd46a4295d848fc3cf4, type: 3}
+  - {fileID: 8300000, guid: 6030a6e28c873454d98ef6689ba6726e, type: 3}

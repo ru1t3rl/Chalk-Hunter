@@ -9,6 +9,9 @@ namespace Ru1t3rl.ChalkHunter.Utilities
     {
         private Coroutine playSequenceCoroutine;
 
+        // TODO: implement multiple sources for playing at the same time
+        private List<AudioSource> sources = new List<AudioSource>();
+
         [Header("References")]
         [SerializeField] private AudioClipSequence sequence;
         [SerializeField] private AudioSource source;
@@ -35,6 +38,8 @@ namespace Ru1t3rl.ChalkHunter.Utilities
 
             if (sequence.Length > 0)
                 source.clip = sequence.GetClip(0);
+
+            sources.Add(source);
         }
 
         public void Play()
@@ -64,8 +69,7 @@ namespace Ru1t3rl.ChalkHunter.Utilities
         {
             for (int i = 0; i < sequence.Length; i++)
             {
-                source.clip = sequence.GetClip(i);
-                source.Play();
+                source.PlayOneShot(sequence.GetClip(i));
 
                 if (overrideInterval)
                 {
@@ -87,6 +91,10 @@ namespace Ru1t3rl.ChalkHunter.Utilities
             if (loop)
             {
                 playSequenceCoroutine = StartCoroutine(PlayInOrder());
+            }
+            else
+            {
+                playSequenceCoroutine = null;
             }
         }
 
@@ -95,7 +103,7 @@ namespace Ru1t3rl.ChalkHunter.Utilities
             tempClips = new List<AudioClip>();
             tempClips.AddRange(sequence.Sequence);
 
-            for (int i = 0; i < sequence.Length; i++)
+            for (int i = tempClips.Count; i-- > 0; i++)
             {
                 source.clip = sequence.GetClip(i);
                 source.Play();
@@ -115,11 +123,17 @@ namespace Ru1t3rl.ChalkHunter.Utilities
                 {
                     yield return new WaitForSeconds(source.clip.length);
                 }
+
+                tempClips.RemoveAt(i);
             }
 
             if (loop)
             {
                 playSequenceCoroutine = StartCoroutine(PlayInOrder());
+            }
+            else
+            {
+                playSequenceCoroutine = null;
             }
         }
     }
