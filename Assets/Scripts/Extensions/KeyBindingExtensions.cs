@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Ru1t3rl.ChalkHunter.Utilities;
+using Ru1t3rl.ChalkHunter.Data;
 using Ru1t3rl.ChalkHunter.Enums;
 
 namespace Ru1t3rl.ChalkHunter.Extensions

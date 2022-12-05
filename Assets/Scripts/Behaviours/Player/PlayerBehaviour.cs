@@ -1,5 +1,5 @@
 using UnityEngine;
-using Ru1t3rl.ChalkHunter.Utilities;
+using Ru1t3rl.ChalkHunter.Data;
 using Ru1t3rl.ChalkHunter.Enums;
 using Ru1t3rl.Events;
 using Ru1t3rl.Events.Args;

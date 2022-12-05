@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Ru1t3rl.ChalkHunter.Enums;
 using Ru1t3rl.ChalkHunter.Extensions;
 
-namespace Ru1t3rl.ChalkHunter.Utilities
+namespace Ru1t3rl.ChalkHunter.Data
 {
 
     [CreateAssetMenu(fileName = "KeyMap", menuName = "Chalk-Hunter/KeyMap", order = 0)]
@@ -27,12 +25,5 @@ namespace Ru1t3rl.ChalkHunter.Utilities
         {
             return keyBindings.First(binding => binding.action == action);
         }
-    }
-
-    [System.Serializable]
-    public class KeyBinding
-    {
-        public Action action;
-        public KeyCode[] key;
     }
 }
