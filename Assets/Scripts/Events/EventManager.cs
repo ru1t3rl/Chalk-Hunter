@@ -122,6 +122,34 @@ namespace Ru1t3rl.Events
             }
         }
 
+        /// <summary>Remove an event if it exists</summary>
+        /// <param name="eventName">The name of the event</param>
+        public void RemoveEvent(string eventName)
+        {
+            if (events.ContainsKey(eventName))
+            {
+                events.Remove(events.GetEvent(eventName));
+            }
+            else if (paramEvents.ContainsKey(eventName))
+            {
+                paramEvents.Remove(paramEvents.GetEvent(eventName));
+            }
+        }
+
+        /// <summary>Remove an event if it exists</summary>
+        /// <param name="unityEvent">The unity event to remove from the manager</param>
+        public void RemoveEvent(UnityEvent<EventArgs> unityEvent)
+        {
+            for (int i = 0; i < paramEvents.Count; i++)
+            {
+                if (paramEvents[i].unityEvent == unityEvent)
+                {
+                    paramEvents.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
         /// <summary>Invoke the event with the given name if it exists</summary>
         /// <param name="eventName">The name of the event to invoke</param>
         public void Invoke(string eventName)
