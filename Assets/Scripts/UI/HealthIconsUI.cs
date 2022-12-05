@@ -18,9 +18,11 @@ namespace Ru1t3rl.ChalkHunter.UI
         {
             base.Awake();
 
-            for(int iIcon = 0; iIcon < numberOfIcons; iIcon++)
+            healthIcons = new GameObject[numberOfIcons];
+
+            for (int iIcon = 0; iIcon < numberOfIcons; iIcon++)
             {
-                Instantiate(healthIconPrefab, healthIconsParent);
+                healthIcons[iIcon] = Instantiate(healthIconPrefab, healthIconsParent);
             }
         }
 

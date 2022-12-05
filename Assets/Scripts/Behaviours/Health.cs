@@ -34,7 +34,7 @@ namespace Ru1t3rl.ChalkHunter.Behaviours
             EventManager.Instance.Invoke($"{gameObject.GetInstanceID()}_OnHeal");
         }
 
-        public void Damage(float amount)
+        public void TakeDamage(float amount)
         {
             health -= amount;
             health = Mathf.Clamp(health, 0, maxHealth);

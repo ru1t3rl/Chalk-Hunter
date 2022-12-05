@@ -22,7 +22,7 @@ public class CameraBehaviour : MonoBehaviour
     private void Awake()
     {
         camera ??= GetComponent<Camera>() ?? Camera.main;
-        EventManager.Instance.AddEvent("SwitchView", onSwitch);
+        EventManager.Instance.AddListener("SwitchView", onSwitch.Invoke);
     }
 
     private void Start()
