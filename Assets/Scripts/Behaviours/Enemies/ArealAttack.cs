@@ -55,17 +55,19 @@ namespace Ru1t3rl.ChalkHunter.Behaviours.Enemies
                     maxRadius,
                     radiusTransitionDuration).SetEase(Ease.Unset).onComplete += () =>
                     {
-                        inAttack = false;
                         if (cooldown > radiusTransitionDuration)
                         {
                             new WaitForSeconds(cooldown - radiusTransitionDuration);
                         }
+
+                        inAttack = false;
                         attackRoutine = null;
                     };
             }
             else
             {
                 yield return new WaitForSeconds(radiusTransitionDuration);
+                inAttack = false;
                 attackRoutine = null;
             }
         }
